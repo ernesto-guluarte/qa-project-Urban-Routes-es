@@ -154,10 +154,6 @@ class UrbanRoutesPage:
     def get_titulo_de_la_orden(self):
         return self.get_elemento(self.LOCATOR_TITULO_DE_LA_ORDEN).text
 
-    # # informacion del conductor (Opcional, para el bonus)
-    # def get_info_conductor(self):
-    #     return self.get_elemento(self.LOCATOR_INFO_CONDUCTOR).text
-
     # INTERACCION CON ELEMENTOS CLICKEABLES
     # pedir un taxi
     def pedir_un_taxi_click(self):
