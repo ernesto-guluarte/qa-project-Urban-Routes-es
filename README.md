@@ -54,14 +54,16 @@ pip install selenium pytest
 
 Las pruebas están configuradas para usar **Chrome**. Asegúrate de que el ejecutable de **ChromeDriver** sea accesible para Selenium. Normalmente, esto ya viene incluido o se maneja automáticamente con las versiones recientes de `selenium` y `Google Chrome`.
 
-### 4. Estructura de Archivos
+### 4. Estructura y Función de los Archivos
 
-Asegúrate de que los siguientes archivos estén ubicados en el mismo directorio:
+Asegúrate de que los siguientes archivos estén ubicados en el mismo directorio. Cada uno cumple un rol específico basado en el patrón **Page Object Model (POM)**:
 
-* `test_main.py`
-* `pages.py`
-* `data.py`
-* `helpers.py`
+| Archivo | Patrón/Tecnología | Función Principal | Contenido Clave |
+| :--- | :--- | :--- | :--- |
+| `test_main.py` | Pytest / Selenium | Define la **lógica y flujo de las 9 pruebas** que simulan el pedido completo del viaje. | Clase `TestUrbanRoutes`, métodos de prueba (`test_*`), y aserciones (`assert`). |
+| `pages.py` | Page Object Model (POM) | Encapsula los **localizadores e interacciones** de la interfaz web, aislando la lógica de la página. | Localizadores (`LOCATOR_*`), métodos de acción (`click`, `set`), y lógica de espera (`WebDriverWait`). |
+| `data.py` | Datos de Prueba | Centraliza todos los **datos de entrada** fijos necesarios para la ejecución de las pruebas. | URL, direcciones, número de teléfono, datos de la tarjeta y mensajes. |
+| `helpers.py` | Funciones Auxiliares | Proporciona una función crítica para simular la **autenticación por código SMS** (fuera de la interacción directa con la página). | Función `retrieve_phone_code` (usa logs de red/CDP). |
 
 ### 5. Ejecutar las Pruebas
 
